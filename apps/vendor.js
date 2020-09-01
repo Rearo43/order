@@ -9,7 +9,7 @@ emitter.on('pickup', onPickup);
 function order(order) {
 
     setTimeout(() => {
-        console.log('the stuff in a particular way');
+        console.log({});
         emitter.emit('pickup', payload);
     }, 1000 * 5);
 }
