@@ -2,17 +2,24 @@
 
 const emitter = require('./lib/events')
 
-// console.time("time");
 emitter.on('pickup', onPickup);
-
-// console.time("time");
-// emitter.on('in-transit', onTransit);
-
-// console.time("time");
-// emitter.on('delivered', onDelivered);
+emitter.on('in-transit', onTransit);
+emitter.on('delivered', onDelivered);
 
 function onPickup(order) {
     const time = new Date();
 
-    console.log('EVENT', {event:'pickup', time, order})
+    console.log('EVENT', {event:'pickup', time, order});
+}
+
+function onTransit(order) {
+    const time = new Date();
+
+    console.log('EVENT', {event:'in-transit', time, order})
+}
+
+function onDelivered(order) {
+    const time = new Date();
+
+    console.log('EVENT', {event:'delivered', time, order})
 }

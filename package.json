@@ -1,0 +1,28 @@
+{
+  "name": "order",
+  "version": "1.0.0",
+  "description": "",
+  "main": "caps.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest",
+    "watch": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rearo43/order.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rearo43/order/issues"
+  },
+  "homepage": "https://github.com/Rearo43/order#readme",
+  "dependencies": {
+    "faker": "^5.1.0",
+    "jest": "^26.4.2"
+  }
+}
