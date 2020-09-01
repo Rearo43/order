@@ -2,13 +2,15 @@
 
 const emitter = require('..lib/events')
 
-emitter.on('pickup', onPickup);
-
 function onPickup(order) {
 
     setTimeout(() => {
-        console.log('the stuff in a particular way');
-        emitter.emit('in-transit');
+        console.log(`DRIVER: picked up ${ORDER_ID}`);
+        emitter.emit('in-transit', payload);
     }, 1000);
-}
 
+    setTimeout(() => {
+        console.log(`Delivered`);
+        emitter.emit('Delivered', payload);
+    }, 1000 * 4); //Three seconds after transit
+}
