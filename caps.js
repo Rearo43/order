@@ -2,24 +2,35 @@
 
 const emitter = require('./lib/events')
 
-emitter.on('pickup', onPickup);
-emitter.on('in-transit', onTransit);
-emitter.on('delivered', onDelivered);
+emitter.on('pickup', onEvent('pickup'));
+emitter.on('in-transit', onEvent('in-transit'));
+emitter.on('delivered', onEvent('delivered'));
 
-function onPickup(order) {
-    const time = new Date();
 
-    console.log('EVENT', {event:'pickup', time, order});
+function onEvent(eventName) {
+
+    return order => {
+        const time = new Date();
+
+        console.log('EVENT', {event:eventName, time, order});
+    }
 }
+// -------------------------Refactor ^^
 
-function onTransit(order) {
-    const time = new Date();
+// function onPickup(order) {
+//     const time = new Date();
 
-    console.log('EVENT', {event:'in-transit', time, order})
-}
+//     console.log('EVENT', {event:'pickup', time, order});
+// }
 
-function onDelivered(order) {
-    const time = new Date();
+// function onTransit(order) {
+//     const time = new Date();
 
-    console.log('EVENT', {event:'delivered', time, order})
-}
+//     console.log('EVENT', {event:'in-transit', time, order})
+// }
+
+// function onDelivered(order) {
+//     const time = new Date();
+
+//     console.log('EVENT', {event:'delivered', time, order})
+// }
