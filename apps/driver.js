@@ -6,11 +6,19 @@ function onPickup(order) {
 
     setTimeout(() => {
         console.log(`DRIVER: picked up ${ORDER_ID}`);
-        emitter.emit('in-transit', payload);
+        emitter.emit('in-transit', order);
     }, 1000);
+}
+
+function onDelivery(order) {
 
     setTimeout(() => {
-        console.log(`Delivered`);
-        emitter.emit('Delivered', payload);
-    }, 1000 * 4); //Three seconds after transit
+        console.log(`DRIVER: delivered ${ORDER_ID}`);
+        emitter.emit('Delivered', order);
+    }, 1000 * 3);
 }
+
+emitter.on('pickup', onPickup);
+emitter.on('in-transit', onDelivery);
+
+module.exports = onPickup;
