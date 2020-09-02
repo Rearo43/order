@@ -1,6 +1,8 @@
 'use strict';
 
-const emitter = require('./lib/events')
+const emitter = require('./lib/events');
+require('./apps/driver');
+require('./apps/vendor');
 
 emitter.on('pickup', onEvent('pickup'));
 emitter.on('in-transit', onEvent('in-transit'));
